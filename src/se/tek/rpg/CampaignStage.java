@@ -1,5 +1,6 @@
 package se.tek.rpg;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -50,25 +51,19 @@ public class CampaignStage extends Stage {
 
 		this.pPlayer = new Player();
 	}
-	
+
 	@Override
 	public boolean keyDown(int keyCode) {
 		if (keyCode == Keys.Q)
-			if (this.dDialog instanceof DebugDialog)
-				((DebugDialog)this.dDialog).getInput();
+			((TeknikumRpg) Gdx.app.getApplicationListener()).getDebugInput();
 		return super.keyDown(keyCode);
-	}
-	
-	@Override
-	public boolean keyTyped(char character) {
-		return super.keyTyped(character);
 	}
 
 	public Player getPlayer() {
 		return this.pPlayer;
 	}
-	
-	public Dialog getDialog(){
+
+	public Dialog getDialog() {
 		return this.dDialog;
 	}
 

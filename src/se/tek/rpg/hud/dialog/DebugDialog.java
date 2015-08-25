@@ -13,7 +13,6 @@ public class DebugDialog extends Dialog implements Runnable {
 	private Thread tThread;
 
 	public void getInput() {
-		System.out.println("getInput");
 		if (this.tThread == null)
 			this.tThread = new Thread(this);
 		
@@ -30,15 +29,18 @@ public class DebugDialog extends Dialog implements Runnable {
 
 	@Override
 	public void run() {
-		final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-		try {
-			if ((userInput = reader.readLine()) != null) {
-				this.dialog(userInput);
-			}
-		} catch (IOException e) {
-			Gdx.app.error("Teknikum RPG", "Debug dialog IO error.");
-			Gdx.app.exit();
-		}
+//		final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//		
+//		try {
+//			
+////			System.out.println(reader.readLine());
+////			
+//			if ((userInput = reader.readLine()) != null) {
+//				this.dialog(userInput);
+//			}
+//		} catch (IOException e) {
+//			Gdx.app.error("Teknikum RPG", "Debug dialog IO error.");
+//			Gdx.app.exit();
+//		}
 	}
 }
