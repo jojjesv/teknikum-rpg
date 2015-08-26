@@ -2,9 +2,11 @@ package se.tek.rpg;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.partlight.sandcat.SandCatGame;
+import com.partlight.sandcat.debug.DebugInputDialog;
 
-import se.tek.rpg.debug.DebugInputDialog;
+import se.tek.rpg.hud.dialog.CommonAssets;
 import se.tek.rpg.screen.BaseCampaign;
 
 public class TeknikumRpg extends SandCatGame {
@@ -16,9 +18,11 @@ public class TeknikumRpg extends SandCatGame {
 	@Override
 	public void create() {
 		super.create();
-		this.bgR = 1;
-		this.bgG = 1;
-		this.bgB = 1;
+		this.bgR = 100f / 255f;
+		this.bgG = 149f / 255f;
+		this.bgB = 237f / 255f;
+		
+		CommonAssets.bfDialog = new BitmapFont(Gdx.files.internal("bin/font.fnt"));
 
 		this.setScreen(new BaseCampaign());
 	}

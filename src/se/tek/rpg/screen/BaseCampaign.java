@@ -2,10 +2,9 @@ package se.tek.rpg.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.partlight.sandcat.debug.DebugInputDialog;
 
 import se.tek.rpg.CampaignStage;
-import se.tek.rpg.debug.DebugInputDialog;
-import se.tek.rpg.hud.dialog.DebugDialog;
 
 public class BaseCampaign extends ScreenAdapter{
 	
@@ -28,8 +27,8 @@ public class BaseCampaign extends ScreenAdapter{
 	@Override
 	public void render(float delta) {
 		super.render(delta);
-		if (DebugInputDialog.input.contentEquals("cat")){
-			Gdx.app.exit();
+		if (!DebugInputDialog.input.contentEquals("")){
+			this.sMainStage.getDialog().dialog(DebugInputDialog.input);
 		}
 		this.sMainStage.act();
 		this.sMainStage.draw();
